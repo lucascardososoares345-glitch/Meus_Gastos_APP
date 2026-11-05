@@ -222,3 +222,57 @@ fun Etiqueta(texto: String, selecionada: Boolean, aoClicar: () -> Unit) {
             fontWeight = if (selecionada) FontWeight.Bold else FontWeight.Normal)
     }
 }
+
+
+// ---------- ETAPA 5: CINCO PREVIEWS ----------
+// Nos previews, nao precisamos criar ViewModel nem abrir o aplicativo.
+@androidx.compose.ui.tooling.preview.Preview(showBackground = true)
+@Composable
+fun ResumoTotalPreview() {
+    ResumoTotal(total = 201.70, quantidade = 4)
+}
+
+@androidx.compose.ui.tooling.preview.Preview(showBackground = true)
+@Composable
+fun LinhaGastoPreview() {
+    LinhaGasto(
+        gasto = Gasto(1, "Almoço no bandejão", 18.50, Categoria.ALIMENTACAO),
+        aoRemover = {}
+    )
+}
+
+@androidx.compose.ui.tooling.preview.Preview(showBackground = true)
+@Composable
+fun FormularioComErroPreview() {
+    FormularioGasto(
+        descricao = "Café",
+        valorTexto = "abc",
+        categoria = Categoria.ALIMENTACAO,
+        erro = "O valor precisa ser um número",
+        aoDigitarDescricao = {},
+        aoDigitarValor = {},
+        aoSelecionarCategoria = {},
+        aoAdicionar = {}
+    )
+}
+
+@androidx.compose.ui.tooling.preview.Preview(showBackground = true)
+@Composable
+fun FiltroCategoriasPreview() {
+    FiltroCategorias(selecionada = Categoria.MORADIA, aoFiltrar = {})
+}
+
+@androidx.compose.ui.tooling.preview.Preview(showBackground = true)
+@Composable
+fun FormularioVazioPreview() {
+    FormularioGasto(
+        descricao = "",
+        valorTexto = "",
+        categoria = Categoria.ALIMENTACAO,
+        erro = null,
+        aoDigitarDescricao = {},
+        aoDigitarValor = {},
+        aoSelecionarCategoria = {},
+        aoAdicionar = {}
+    )
+}
